@@ -1,29 +1,38 @@
 import React from 'react';
 import './App.css';
 import {Accordion} from "./components/accordion/Accordion";
-import {Rating} from "./components/rating/Rating";
-import {OnOff} from "./components/OnOff/OnOff";
+import {Rating, RatingValueType} from "./components/rating/Rating";
+import {Accordion2} from "./components/accordion/Accordion2";
+import {OnOffControlled} from "./components/OnOff/OnOff-controlled";
+import {OnOff2Uncontrolled} from "./components/OnOff/OnOff-2-uncontrolled";
+
 
 function App() {
+
+    let [ratingValue, setRatingValue] = React.useState<RatingValueType>(0);
+    let [accordionCollapsed, setAccordionCollapsed] = React.useState<boolean>(false)
+    let [switchOn, setSwitchOn] = React.useState<boolean>(false)
     return (
         <div className="App">
 
-            <Accordion titleValue={'---Menu---'} collapsed={true}/>
-            <Accordion titleValue={'---Users---'} collapsed={false}/>
-            <Rating value={0}/>
-            <Rating value={1}/>
-            <Rating value={2}/>
-            <Rating value={3}/>
-            <Rating value={4}/>
-            <Rating value={5}/>
+            {/*<Accordion titleValue={'---Menu---'}/>*/}
+            {/*<Accordion titleValue={'---Users---'}/>*/}
+            {/*<Accordion2 titleValue={"Collapsed or not"}*/}
+            {/*            collapsed={accordionCollapsed}*/}
+            {/*            onChanged={() => setAccordionCollapsed(!accordionCollapsed)}/>*/}
+            {/*<Rating2/>*/}
+            {/*<Rating value={ratingValue} onClick={setRatingValue}/>*/}
 
-            <OnOff included={false}/>
-            <OnOff included={true}/>
+            {/*<OnOffControlled included={switchOn}*/}
+            {/*                 onChange={setSwitchOn}/>*/}
+            <OnOff2Uncontrolled onChange={setSwitchOn}/> {switchOn.toString()}
+            <Accordion titleValue={'Hello'}/>
         </div>
     );
 }
 
-type PageTitlePropsType = {
+type PageTitlePropsType
+    = {
     title: string,
 }
 
