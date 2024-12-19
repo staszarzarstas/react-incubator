@@ -1,66 +1,45 @@
 import React from "react";
 
+// Типы для пропсов компонента Accordion2
 type AccordionPropsType = {
-    titleValue: string
-    collapsed: boolean
-    onChanged: () => void
-}
+    titleValue: string;
+    collapsed: boolean;
+    onChange: () => void; // Функция, которая будет вызываться при клике
+};
 
+// Основной компонент Accordion2
 export function Accordion2(props: AccordionPropsType) {
-
     return (
         <div style={{cursor: 'pointer'}}>
-            <AccordionTitle title={props.titleValue}
-                            onChanged={props.onChanged}/>
-            {/*// Если collapsed true ==> Переходи к следующему и верни его (нарисуй)*/}
-            {!props.collapsed && <AccordionBody/>}
+            {/* Компонент заголовка аккордеона, который вызывает onChanged при клике */}
+            <AccordionTitle title={props.titleValue} onChange={props.onChange}/>
+
+            {/* Если collapsed === false, показываем AccordionBody */}
+            {props.collapsed ? null : <AccordionBody/>}
         </div>
-    )
-
-
+    );
 }
 
+// Типы для пропсов компонента AccordionTitle
 type AccordionTitlePropsType = {
     title: string;
-    onChanged: () => void
-}
+    onChange: () => void;
+};
 
+// Компонент для отображения заголовка аккордеона
 function AccordionTitle(props: AccordionTitlePropsType) {
-    console.log("Accordion Rendering")
-    return (
-
-        <h3 onClick={props.onChanged}>{props.title}</h3>
-
-    )
+    console.log("Accordion Rendering");
+    return <h3 onClick={(event) => props.onChange()}>{props.title}</h3>;
 }
 
+// Компонент для отображения содержимого аккордеона
 function AccordionBody() {
-    console.log('bodyRendering')
+    console.log('bodyRendering');
     return (
         <ul>
             <li>1</li>
             <li>2</li>
             <li>3</li>
         </ul>
-    )
+    );
 }
-
-
-// export function Accordion2(props: AccordionPropsType) {
-//     if (collapsed) {
-//         return (
-//             <div>
-//                 <AccordionTitle title={props.titleValue}/>
-//                 <AccordionBody/>
-//             </div>
-//         )
-//     }
-//     // if (!props.collapsed) {
-//     return (
-//         <div>
-//             <AccordionTitle title={props.titleValue}/>
-//         </div>
-//     )
-//     // }
-//
-// }

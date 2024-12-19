@@ -17,16 +17,16 @@ function App() {
 
             {/*<Accordion titleValue={'---Menu---'}/>*/}
             {/*<Accordion titleValue={'---Users---'}/>*/}
-            {/*<Accordion2 titleValue={"Collapsed or not"}*/}
-            {/*            collapsed={accordionCollapsed}*/}
-            {/*            onChanged={() => setAccordionCollapsed(!accordionCollapsed)}/>*/}
+            <Accordion2 titleValue={"Collapsed or not"}
+                        collapsed={accordionCollapsed}
+                        onChange={() => setAccordionCollapsed(!accordionCollapsed)}/>
             {/*<Rating2/>*/}
             {/*<Rating value={ratingValue} onClick={setRatingValue}/>*/}
 
-            {/*<OnOffControlled included={switchOn}*/}
-            {/*                 onChange={setSwitchOn}/>*/}
-            <OnOff2Uncontrolled onChange={setSwitchOn}/> {switchOn.toString()}
-            <Accordion titleValue={'Hello'}/>
+            <OnOffControlled included={switchOn}
+                             onChange={setSwitchOn}/>
+            {/*<OnOff2Uncontrolled onChange={setSwitchOn}/> {switchOn.toString()}*/}
+            {/*<Accordion titleValue={'Hello'}/>*/}
         </div>
     );
 }
